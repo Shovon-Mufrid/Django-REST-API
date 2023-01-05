@@ -2,3 +2,36 @@ pip install djangorestframework
 pip install markdown       # Markdown support for the browsable API.
 pip install django-filter  # Filtering support
 
+pip install httpie
+
+
+
+1. use serializers
+2. mixin is the best option
+3. IsAuthenticated
+4. Token
+5. Problems: Hyperlink adding problem
+
+
+
+
+
+Views>>>
+from django.shortcuts import render
+from MyApp.models import Contact
+from MyApp.serializer import ContactSerializer
+from django.http import HttpResponse, JsonResponse, Http404
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.parsers import JSONParser
+from rest_framework import status
+# from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework.views import APIView
+#Mixin
+from rest_framework import mixins
+#generic
+from rest_framework import generics
+# authentication
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+
